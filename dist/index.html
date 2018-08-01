@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="author" content="Shadrach Temitayo">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Address Book</title>
-	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+	<title>Javascript Calculator</title>
+	<link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
 </head>
 <body>
-
-<script type="text/javascript" src="./assets/js/calculator.js"></script>
+<div class="container">
+	<section class="display">
+		<span class="display__runtime-input"></span>
+		<span class="display__runtime-final"></span>
+	</section>
+	<section class="input__panel">
+		<button class="input__button input__button-clear">AC</button>
+		<button class="input__button input__operator" data-calc="/">/</button>
+		<button class="input__button input__operator" data-calc="x">x</button>
+		<button class="input__button input__operator" data-calc="-">-</button>
+		<button class="input__button input__oprand" data-calc="7">7</button>
+		<button class="input__button input__oprand" data-calc="8">8</button>
+		<button class="input__button input__oprand" data-calc="9">9</button>
+		<button class="input__button input__operator" data-calc="+">+</button>
+		<button class="input__button input__oprand" data-calc="4">4</button>
+		<button class="input__button input__oprand" data-calc="5">5</button>
+		<button class="input__button input__oprand" data-calc="6">6</button>
+		<button class="input__button input__operator" data-calc="%">%</button>
+		<button class="input__button input__oprand" data-calc="1">1</button>
+		<button class="input__button input__oprand" data-calc="2">2</button>
+		<button class="input__button input__oprand" data-calc="3">3</button>
+		<button class="input__button input__button-delete">
+						<img src="./assets/images/delete.svg">
+		</button>
+		<button class="input__button input__oprand" data-calc="00">00</button>
+		<button class="input__button input__oprand" data-calc="0">0</button>
+		<button class="input__button input__decimal" data-calc=".">.</button>
+		<button class="input__button input__button-white js-evaluate">
+			<img src="./assets/images/equals.svg">
+		</button>
+	</section>
+</div>
+<script type="module" src="./assets/js/Stack.js"></script>
+<script type="module" src="./assets/js/helper.js"></script>
+<script type="module" src="./assets/js/calculator.js"></script>
 </body>
 </html>

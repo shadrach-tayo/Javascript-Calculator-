@@ -1,0 +1,131 @@
+:root {
+	--white: #fff;
+	--grey: rgba(128, 128, 128, 1);
+	--red: #E5193EFF;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 16px;
+}
+
+body {
+	font-size: 62.5%;
+	background-image: linear-gradient(to bottom left, #B23BC3FF, #622FCFFF);
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	--height: 85vh;
+	height: var(--height);
+	width: 30%;
+	margin: 3rem auto;
+	padding-bottom: 8px;
+	background: linear-gradient(to bottom right, #EA7614FF, #FA042DFF);
+	border: 1rem solid var(--white);
+	border-radius: 15px;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 1fr 2fr;
+}
+
+.container::after {
+	content: "";
+	display: block;
+	height: 1px;
+	width: 40%;
+	margin: 0 auto;
+	background-color: var(--white);
+}
+
+@media screen and (max-width: 960px) {
+	.container {
+		width: 80%;
+	}
+}
+
+
+/* styling for the display section */
+.display {
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: repeat(2, 1fr);
+	color: white;
+	max-height: 100%;
+}
+
+.display::after {
+	content: "";
+	display: block;
+	height: 1px;
+	width: 80%;
+	margin: 0 auto;
+	background-color: var(--white);
+}
+
+.display__runtime-final {
+	min-height: 100%;
+	box-sizing: border-box;
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: 1.5px;	
+	text-align: right;
+	padding-top: 3.5rem;
+	padding-right: .5rem;
+}
+
+.display__runtime-input {
+	padding-top: 1rem;
+	padding-right: 2rem;
+	font-size: 2rem;
+	text-align: right;
+	letter-spacing: 2px;
+}
+
+/* styling for the Input section */
+.input__panel {
+	padding: .5rem;
+	display: grid;
+	grid-gap: .5rem;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-row: repeat(5, 1fr);
+	align-items: center;
+	justify-items: center;
+}
+
+.input__button {
+	padding: 1rem;
+	background-color: transparent;
+	border-radius: 50%;
+	color: var(--white);
+	font-size: 1rem;
+	font-weight: 700;
+	border: none;
+	outline: none;
+	transition: all .2s ease-out;
+}
+
+.input__button:focus {
+	background: var(--white);
+	color: var(--red);
+}
+
+.input__button-white {
+	background-color: var(--white);
+}
+
+.input__button-white img {
+	width: 1rem;
+}
+
+.input__button-delete > img {
+	width: 1.2rem;
+}
+
+.input__button-delete:focus {
+	background: transparent;
+}
