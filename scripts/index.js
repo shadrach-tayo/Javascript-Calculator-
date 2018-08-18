@@ -1,17 +1,20 @@
 import Stack from './stack.js';
 import { addListenerAndCallback, isOp, isNumber} from './helper.js';
+import { toPostfixToAnswer } from './parser.js';
 
 
 class Calculator {
 	constructor() {
 		this.name = 'IphoneX calculator';
 		this.runtimeInput = new Stack();
+		this.currentAnswer = '';
 
 		// properties to be bound
 		this.clearScreen = this.clearScreen.bind(this);
 		this.updateScreen = this.updateScreen.bind(this);
 		this.popRuntimeInput = this.popRuntimeInput.bind(this);
 		this.handleOprandClick = this.handleOprandClick.bind(this);
+		this.displayFinalAnswer = this.displayFinalAnswer.bind(this);
 		this.handleDecimalClick = this.handleDecimalClick.bind(this);
 		this.handleOperatorClick = this.handleOperatorClick.bind(this);
 		this.evaluateRuntimeInput = this.evaluateRuntimeInput.bind(this);
@@ -55,9 +58,18 @@ class Calculator {
 	handleOprandClick(e) {
 		console.log(this.runtimeDisplay.innerHTML, this.runtimeInput);
 		let oprand = e.target.dataset.calc;
+		
+		// check if there is a current answer and clear runtimeInput if so
+		// initialize currentAnswer to null;
+		if(this.currentAnswer) {
+			this.runtimeInput.clear();
+			this.clearScreen();
+			this.currentAnswer = null;
+		}
 
 		// check if last element of runtime stack is an operator push as next oprand
 		// else add to the last digits in the stack;
+
 		if(this.runtimeInput.length() == 0) {
 			this.runtimeInput.push(oprand);
 		} else if(isOp(this.runtimeInput.peek())) {
@@ -108,6 +120,10 @@ class Calculator {
 		this.finalDisplay.innerHTML = '';
 	}
 
+	displayFinalAnswer() {
+		this.finalDisplay.innerHTML = this.currentAnswer;
+	}
+
 	popRuntimeInput() {
 		let oprand = this.runtimeInput.peek();
 		if(isOp(this.runtimeInput.peek())) {
@@ -124,7 +140,12 @@ class Calculator {
 	}
 
 	evaluateRuntimeInput() {
-		console.log('Evaluating expression');
+		if(this.runtimeInput.dataStore.length > 0) {
+			this.currentAnswer = toPostfixToAnswer(this.runtimeInput.dataStore.join(' '));
+			if(isNumber(this.currentAnswer)) {
+				this.displayFinalAnswer();
+			}
+		}
 	}
 
 }

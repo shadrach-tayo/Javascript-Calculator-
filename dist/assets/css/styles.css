@@ -34,6 +34,8 @@ body {
 	display: grid;
 	grid-template-columns: 100%;
 	grid-template-rows: 1fr 2fr;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 
 .container::after {
@@ -56,22 +58,16 @@ body {
 .display {
 	display: grid;
 	grid-template-columns: 100%;
-	grid-template-rows: repeat(2, 1fr);
+	grid-template-rows: 1fr 2fr;
+	background-color: #222222d1;
 	color: white;
+	height: 100%;
 	max-height: 100%;
-}
-
-.display::after {
-	content: "";
-	display: block;
-	height: 1px;
-	width: 80%;
-	margin: 0 auto;
-	background-color: var(--white);
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 
 .display__runtime-final {
-	min-height: 100%;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 	font-size: 2rem;
@@ -80,6 +76,7 @@ body {
 	text-align: right;
 	padding-top: 3.5rem;
 	padding-right: .5rem;
+	box-sizing: border-box;
 }
 
 .display__runtime-input {
@@ -101,6 +98,10 @@ body {
 	    -ms-flex-align: center;
 	        align-items: center;
 	justify-items: center;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-transition: .2s ease-in;
+	transition: .2s ease-in;
 }
 
 .input__button {
@@ -123,6 +124,10 @@ body {
 
 .input__button-white {
 	background-color: var(--white);
+}
+
+.input__button-white:focus {
+	background-color: #0a0707;
 }
 
 .input__button-white img {

@@ -26,6 +26,7 @@ class Stack {
 	}
 
 	clear() {
+		this.dataStore = [];
 		this.top = 0;
 	}
 	
